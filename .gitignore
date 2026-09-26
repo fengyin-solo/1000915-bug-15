@@ -85,3 +85,7 @@ desktop.ini
 *.db
 *.pid
 *.seed
+
+# ===== 运行期业务数据 =====
+backend/data.json
+backend/data.json.tmp

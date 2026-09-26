@@ -76,3 +76,7 @@ npm run dev
   `backend/app/routers/<模块>.py`，业务规则在 `backend/app/services/<模块>.py`。
 - 列表接口统一返回 `{ items, total, page, size }`，动作接口统一返回 `{ ok, message }`。
 - 状态流转只允许在 `app/services` 里改，路由层不做业务判断。
+- 登记、编辑与动作结果会落盘到 `backend/data.json`（可用环境变量 `LAB_DATA_FILE`
+  改路径），服务重启后仍保留；该文件是运行期数据，已在 `.gitignore` 忽略。
+- 中间液配制的编辑（`PUT /api/intermediate/{id}`）只更新对应配制编号那一条；
+  失效日期到期后在读取时自动转为「已失效」。
